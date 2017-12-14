@@ -302,6 +302,7 @@
 #loading-spin {
   text-align: center;
   height: 100px;
+    margin-top: 10%;
   margin-left: auto;
   margin-right: auto;
 }

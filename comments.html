@@ -1,7 +1,7 @@
 <!doctype html>
 <head>
 <meta charset="utf-8">
-<title>评论</title>
+<title>美眉秀图 - 评论</title>
 <!-- stylesheet -->
 <link rel="stylesheet" href="/static/css/comment.css">
 <!-- for IE support -->
@@ -18,10 +18,14 @@
 <!-- syntax highlighting(optional) -->
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-
 </head>
 <body>
+<div id="comment-thread"></div>
+<div id="loading-spin"></div>
+<div id="recent-comments"></div>
 
+<!-- comment.js -->
+<script src="/static/js/comment.js"></script>
 <script type="text/javascript">
   marked.setOptions({
   highlight: function (code, lang) {
@@ -37,17 +41,6 @@
   window.addEventListener('DOMContentLoaded', Highlighting, false);
   window.addEventListener('load', Highlighting, false);
 </script>
-<!-- comment.js -->
-<script src="/static/js/comment.js"></script>
-
-
-
-
-<div id="comment-thread"></div>
-
-<div id="loading-spin"></div>
-
-<div id="recent-comments"></div>
 
 <script type="text/javascript">
    var opt = {
@@ -67,8 +60,8 @@
        type: "github",
        user: "cpfwmsx",
        repo: "mmxiutu",
-       no_comment: "No comments yet. Press the button and go to comment now!",
-       go_to_comment: "Go to comment",
+       no_comment: "暂无评论，你可以写点什么!",
+       go_to_comment: "我来评论",
        issue_id: "1",
        btn_class: "btn",
        comments_target: "#comment-thread",
