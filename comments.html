@@ -1,0 +1,81 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<title>评论</title>
+<!-- stylesheet -->
+<link rel="stylesheet" href="/static/css/comment.css">
+<!-- for IE support -->
+<!--[if lte IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+<![endif]-->
+<!-- javascripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/3.0.2/timeago.min.js"></script>
+<!-- loading spin indicator(optional) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script>
+<!-- syntax highlighting(optional) -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+</head>
+<body>
+
+<script type="text/javascript">
+  marked.setOptions({
+  highlight: function (code, lang) {
+     return hljs.highlightAuto(code).value;
+  }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+       if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+</script>
+<!-- comment.js -->
+<script src="/static/js/comment.js"></script>
+
+
+
+
+<div id="comment-thread"></div>
+
+<div id="loading-spin"></div>
+
+<div id="recent-comments"></div>
+
+<script type="text/javascript">
+   var opt = {
+       type: "github",
+       user: "cpfwmsx",
+       repo: "comment.js",
+       recent_comments_target: "#recent-comments",
+       count: 5,
+       client_id: "fc193a77a0819a86ec96",
+       client_secret: "d0ba8abce58deabbe04eceb694ff5ce211c4f2bc"
+   };
+   getRecentCommentsList(opt);
+</script>
+
+<script type="text/javascript">
+   var opt = {
+       type: "github",
+       user: "cpfwmsx",
+       repo: "comment.js",
+       no_comment: "No comments yet. Press the button and go to comment now!",
+       go_to_comment: "Go to comment",
+       issue_id: "1",
+       btn_class: "btn",
+       comments_target: "#comment-thread",
+       loading_target: "#loading-spin",
+       client_id: "fc193a77a0819a86ec96",
+       client_secret: "d0ba8abce58deabbe04eceb694ff5ce211c4f2bc"
+   };
+   getComments(opt);
+</script>
+</body>
